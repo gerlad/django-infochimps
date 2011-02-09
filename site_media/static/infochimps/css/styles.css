@@ -1,0 +1,94 @@
+.container {
+  width: 650px;
+  position: relative;
+}
+
+body {font-size:100%; }
+
+.box {
+background:#fff;
+padding:1.5em;
+margin-bottom:1.5em;
+letter-spacing:0.07em;
+text-decoration:none;
+}
+
+tiny {
+  font-size: 10pt;
+}
+
+.big-input {
+  border: 1px solid #c1ceea;
+  height: 40px;
+  font-size: 1.2em;
+  padding: 0 5px;
+}
+
+.normal-input {
+  border: 1px solid #c1ceea;
+  height: 23px;
+  font-size: 1.2em;
+  padding: 2 2px;
+}
+
+a { 
+  color: #4e6bff;
+  text-decoration: none;
+}
+
+.content {
+  text-align: center;
+}
+
+.little-number {
+  font-size: 3em;
+  color: #152265;
+}
+
+.big-text {
+  font-size: 4em;
+  color: #152265;
+}
+
+.r_chart{
+position:absolute;
+left:34px;
+top:320px;
+}
+
+.q_chart{
+position:absolute;
+left:500px;
+top:320px;
+}
+
+form#infochimps fieldset {
+border: none;
+margin-bottom: 2px;
+}
+
+
+form#infochimps {
+background: #ECECEC;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+border: 1px solid green;
+padding: 5px;
+text-align: center;
+}
+
+.button {
+padding: 6px 10px;
+-webkit-border-radius: 2px 2px;
+border: solid 1px rgb(153, 153, 153);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255, 255, 255)), to(rgb(221, 221, 221)));
+color: #333;
+text-decoration: none;
+cursor: pointer;
+display: inline-block;
+text-transform:uppercase;
+text-align: center;
+text-shadow: 0px 1px 1px rgba(255,255,255,1);
+line-height: 1;
+}

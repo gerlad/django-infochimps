@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type='text/javascript' src='https://www.google.com/jsapi'>
+</script>
+<script type='text/javascript'>
+    google.load('visualization', '1', {
+        packages: ['gauge']
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var trdata = new google.visualization.DataTable();
+          trdata.addColumn('string', 'Label');
+          trdata.addColumn('number', 'Value');
+          trdata.addRows(1);
+          trdata.setValue(0, 0, 'TR');
+          
+        if ({{rank}}) {
+            trdata.setValue(0, 1, {{rank}});
+        } else {
+            trdata.setValue(0, 1, 0);
+        };
+
+        var tr_chart = new google.visualization.Gauge(document.getElementById('r_chart_div'));
+        var options_rank = {
+            min: 0,
+            max: 10,
+            width: 400,
+            height: 120,
+            redFrom: 0,
+            redTo: 2,
+            greenFrom: 8,
+            greenTo: 10,
+            minorTicks: 2
+        };
+        
+        var qu_data = new google.visualization.DataTable();
+          qu_data.addColumn('string', 'Label');
+          qu_data.addColumn('number', 'Value');
+          qu_data.addRows(1);
+          qu_data.setValue(0, 0, 'TQ');
+          
+        if ({{quotient}}) {
+            qu_data.setValue(0, 1, {{quotient}});
+        } else {
+            qu_data.setValue(0, 1, 0);
+        };
+
+        var qu_chart = new google.visualization.Gauge(document.getElementById('q_chart_div'));
+        var options = {
+            width: 400,
+            height: 120,
+            redFrom: 0,
+            redTo: 25,
+            greenFrom: 75,
+            greenTo: 100,
+            minorTicks: 5
+        };
+        tr_chart.draw(trdata, options_rank);
+        qu_chart.draw(qu_data, options);
+    };
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container"> 
+<div class="content"> 
+<img src="{{ STATIC_URL }}infochimps/img/chimp.png" alt="One Nasty Chimp" title="Nasty Chimp" />
+<div class="extra-info" style="text-align: center;"> 
+  <tiny><a href="http://www.n8vandyke.com/sketchbook/sketchbook-nasty_chimp.html">via Nate Van Dyke</a></tiny> 
+</div>
+    <br />
+    <div id="normal-search"> 
+        <form id="infochimps" action="/" method="get">
+        <fieldset>
+        <input class='big-input' id=screen_name name=screen_name type=text autofocus>
+            <h4> Enter a Twitter screen name.</h4>
+        </fieldset>
+        <fieldset>
+        <button type=submit class="button">Trust Me!</button>
+        </fieldset>
+        </form> 
+    </div>
+    {% if rank %}
+    <div class="r_chart" id='r_chart_div'></div>
+    {% endif %}
+    {% if quotient %}
+    <div class="q_chart" id='q_chart_div'></div>
+    {% endif %}
+
+<div class="extra-info" style="text-align: center;"> 
+    <br />
+</div>
+<tiny>This simple application retrieves Twitter metrics (provided by <a href="http://api.infochimps.com/">Infochimps</a>) and graphs them with the <a href="http://code.google.com/apis/chart/">Google Chart API</a>. Learn more about Infochimps' <a href="http://api.infochimps.com/describe/soc/net/tw/trstrank"> TrstRank</a> (TR) and <a href="http://api.infochimps.com/describe/soc/net/tw/trstrank">TrstQuotient</a> (TQ).</tiny> 
+
+<div class="box">
+    {% if screen_name %}
+    <div class="big-text">{{ screen_name }}</div>
+    {% endif %}
+</div>
+    
+</div>
+{% endblock %}
