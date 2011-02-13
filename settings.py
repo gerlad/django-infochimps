@@ -5,9 +5,6 @@
 import os.path
 import posixpath
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'site_media')
 
