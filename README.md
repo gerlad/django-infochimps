@@ -13,7 +13,13 @@ If necessary, install or upgrade Django:
 
     $ pip install Django==1.1.1 
     
-Get the code:
+You also need [infochimpy](git@github.com:gerlad/infochimpy.git)
+    
+    $ git clone git@github.com:gerlad/infochimpy.git 
+    $ cd infochimpy  
+    $ python setup.py install    
+    
+Then git and run:
 
     $ git clone git@github.com:gerlad/django-infochimps.git 
     $ cd django-infochimpy  
