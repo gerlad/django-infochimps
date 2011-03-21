@@ -27,7 +27,8 @@ def home(request):
     return direct_to_template(request, "homepage.html",
             {   'quotient' : chimps.values()[3],
                 'rank' : chimps.values()[2],
-                'screen_name': chimps.values()[1],
+                'screen_name': chimps.values()[0],
+                'twitter_id': chimps.values()[1],
                 'STATIC_URL': settings.STATIC_URL,
             })
 

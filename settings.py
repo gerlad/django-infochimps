@@ -8,7 +8,7 @@ import posixpath
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'site_media')
 
-DEBUG = False
+DEBUG = True
 SERVE_MEDIA = True
 
 ADMINS = (
